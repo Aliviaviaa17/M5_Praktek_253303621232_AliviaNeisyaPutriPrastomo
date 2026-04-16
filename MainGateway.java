@@ -1,20 +1,24 @@
 public class MainGateway {
     public static void main(String[] args) {
+        // Upcasting: Objek anak disimpan dalam tipe data Bapak (Payment)
+        Payment[] payments = {
+            new EWallet(),
+            new CreditCard()
+        };
 
-        // Upcasting
-        Payment[] payments = new Payment[2];
-        payments[0] = new EWallet();
-        payments[1] = new CreditCard();
+        System.out.println("--- SISTEM PEMBAYARAN UNPRISHOP ---");
 
-        // Looping + Polymorphism
         for (Payment p : payments) {
+            // Polimorfisme: Memanggil method yang sama, tapi perilaku berbeda tergantung wujud aslinya
             p.process(100000);
 
-            // Downcasting dengan instanceof
+            // Cek wujud asli dengan instanceof (Downcasting)
             if (p instanceof EWallet) {
-                EWallet e = (EWallet) p;
-                e.inputPin();
+                EWallet dompetDigital = (EWallet) p; // Proses Downcasting
+                dompetDigital.inputPin();
             }
+            
+            System.out.println("-----------------------------------");
         }
     }
 }
