@@ -1,11 +1,10 @@
 public class Payment {
-
-    // Method utama
+    // Method dasar
     public void process(int amount) {
         System.out.println("Memproses pembayaran umum: Rp " + amount);
     }
 
-    // Method Overloading
+    // Overloading: Menambahkan parameter promoCode
     public void process(int amount, String promoCode) {
         System.out.println("Memproses pembayaran: Rp " + amount + " dengan diskon kode " + promoCode);
     }
